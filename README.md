@@ -13,7 +13,7 @@
 
 Таблицы БД:
 
--   пользователи - users: id / login / \_password /registred_at / lole_id
+-   пользователи - users: id / login / \_password /registred_at / role_id
 -   роли - roles: id / name
 -   статьи - posts: id / title / image_url / content / published_at
 -   комментаррии - comments: id / author_id / post_id / content
