@@ -22,13 +22,6 @@ const StyledIcon = styled.div`
 	}
 `;
 
-const StyledLogoutIcon = styled.div`
-	margin: 0 0 10px 10px;
-	&:hover {
-		cursor: pointer;
-	}
-`;
-
 const UserName = styled.div`
 	font-size: 18px;
 	font-weight: bold;
