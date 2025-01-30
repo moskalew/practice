@@ -98,7 +98,7 @@ const AuthorizationContainer = ({ className }) => {
 	const errorMessage = formError || serverError;
 
 	if (roleId !== ROLE.GUEST) {
-		return <Navigate to="./" />;
+		return <Navigate to="/" />;
 	}
 
 	return (
