@@ -65,7 +65,7 @@ const AuthorizationContainer = ({ className }) => {
 
 	const onSubmit = ({ login, password }) => {
 		// fetch('')
-		server.autorize(login, password).then(({ error, res }) => {
+		server.authorize(login, password).then(({ error, res }) => {
 			if (error) {
 				setServerError(`Ошибка запроса: ${error}`);
 				return;
