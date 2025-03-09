@@ -1,33 +1,64 @@
-// import { useDispatch } from "react-redux";
-import { H2 } from "../../components";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import { Content, H2 } from "../../components";
 import { UserRow, TableRow } from "./components";
-// import { ROLE } from "../../constants";
+import { useServerRequest } from "../../hooks";
+import styled from "styled-components";
 
 const UsersContainer = ({ className }) => {
-	// const dispatch = useDispatch();
-	const users = [];
+	const [users, setUsers] = useState([]);
+	const [roles, setRoles] = useState([]);
+	const [errorMessage, setErrorMessage] = useState(null);
+
+	const requestServer = useServerRequest();
+
+	useEffect(() => {
+		Promise.all([
+			requestServer("fetchUsers"),
+			requestServer("fetchRoles"),
+		]).then(([usersRes, rolesRes]) => {
+			if (usersRes.error || rolesRes.error) {
+				setErrorMessage(usersRes.error || rolesRes.error);
+				return;
+			}
+
+			setUsers(usersRes);
+			setRoles(rolesRes);
+		});
+		requestServer("fetchRoles").then((rolesError, res) => {
+			if (rolesError) {
+				return;
+			}
+			setRoles(res);
+		});
+
+		requestServer("fetchUsers");
+	}, [requestServer]);
 
 	return (
 		<div className={className}>
-			<H2>Пользователи</H2>
+			<Content error={errorMessage}>
+				<H2>Пользователи</H2>
 
-			<div>
-				<TableRow>
-					<div className="login-column">Логин</div>
-					<div className="registered-at-column">Дата регистрации</div>
-					<div className="role-column">Роль</div>
-				</TableRow>
+				<div>
+					<TableRow>
+						<div className="login-column">Логин</div>
+						<div className="registered-at-column">
+							Дата регистрации
+						</div>
+						<div className="role-column">Роль</div>
+					</TableRow>
 
-				{users.map(({ id, login, registredAt, roleId }) => (
-					<UserRow
-						key={id}
-						login={login}
-						registredAt={registredAt}
-						roleId={roleId}
-					/>
-				))}
-			</div>
+					{users.map(({ id, login, registredAt, roleId }) => (
+						<UserRow
+							key={id}
+							login={login}
+							registredAt={registredAt}
+							roleId={roleId}
+							roles={roles}
+						/>
+					))}
+				</div>
+			</Content>
 		</div>
 	);
 };
