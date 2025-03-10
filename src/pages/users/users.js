@@ -1,3 +1,5 @@
+import { ROLE } from "../../constants"; // Проверьте путь к файлу
+
 import { useEffect, useState } from "react";
 import { Content, H2 } from "../../components";
 import { UserRow, TableRow } from "./components";
@@ -15,8 +17,6 @@ const UsersContainer = ({ className }) => {
 		// console.log("useEffect сработал!");
 		Promise.all([requestServer("fetchUsers"), requestServer("fetchRoles")])
 			.then(([usersRes, rolesRes]) => {
-				console.log("Ответ сервера:", usersRes, rolesRes);
-
 				if (usersRes.error || rolesRes.error) {
 					setErrorMessage(usersRes.error || rolesRes.error);
 					return;
@@ -45,13 +45,15 @@ const UsersContainer = ({ className }) => {
 						<div className="role-column">Роль</div>
 					</TableRow>
 
-					{users.map(({ id, login, registredAt, roleId }) => (
+					{users.map(({ id, login, registeredAt, roleId }) => (
 						<UserRow
 							key={id}
 							login={login}
-							registredAt={registredAt}
+							registeredAt={registeredAt}
 							roleId={roleId}
-							roles={roles}
+							roles={roles.filter(
+								({ roleId }) => roleId !== ROLE.GUEST,
+							)}
 						/>
 					))}
 				</div>
@@ -66,4 +68,5 @@ export const Users = styled(UsersContainer)`
 	flex-direction: column;
 	margin: auto;
 	width: 570px;
+	font-size: 18px;
 `;
