@@ -10,28 +10,25 @@ const UsersContainer = ({ className }) => {
 	const [errorMessage, setErrorMessage] = useState(null);
 
 	const requestServer = useServerRequest();
-
+	// console.log(requestServer);
 	useEffect(() => {
-		Promise.all([
-			requestServer("fetchUsers"),
-			requestServer("fetchRoles"),
-		]).then(([usersRes, rolesRes]) => {
-			if (usersRes.error || rolesRes.error) {
-				setErrorMessage(usersRes.error || rolesRes.error);
-				return;
-			}
+		// console.log("useEffect сработал!");
+		Promise.all([requestServer("fetchUsers"), requestServer("fetchRoles")])
+			.then(([usersRes, rolesRes]) => {
+				console.log("Ответ сервера:", usersRes, rolesRes);
 
-			setUsers(usersRes);
-			setRoles(rolesRes);
-		});
-		requestServer("fetchRoles").then((rolesError, res) => {
-			if (rolesError) {
-				return;
-			}
-			setRoles(res);
-		});
+				if (usersRes.error || rolesRes.error) {
+					setErrorMessage(usersRes.error || rolesRes.error);
+					return;
+				}
 
-		requestServer("fetchUsers");
+				setUsers(usersRes.res);
+				setRoles(rolesRes.res);
+			})
+			.catch((error) => {
+				console.error("Ошибка запроса:", error);
+				setErrorMessage("Ошибка загрузки данных");
+			});
 	}, [requestServer]);
 
 	return (

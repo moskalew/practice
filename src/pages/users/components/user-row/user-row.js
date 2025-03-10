@@ -9,10 +9,9 @@ const UserRowContainer = ({
 	login,
 	registredAt,
 	roleId: userRoleId,
+	roles,
 }) => {
 	const dispatch = useDispatch();
-
-	const roles = [];
 
 	const onRoleChange = () => {};
 	return (
@@ -24,7 +23,9 @@ const UserRowContainer = ({
 				<div className="role-column">
 					<select value={userRoleId} onChange={onRoleChange}>
 						{roles.map(({ id: roleId, name: roleName }) => (
-							<option value={roleId}>{roleName}</option>
+							<option key={roleId} value={roleId}>
+								{roleName}
+							</option>
 						))}
 					</select>
 
