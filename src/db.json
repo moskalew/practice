@@ -1,39 +1,25 @@
 {
   "users": [
     {
-      "id": "001",
       "login": "anton",
       "password": "qwerty123",
-      "registered_at": "2050-09-22",
-      "role_id": "0"
+      "registered_at": "20.08.2023, 08:31",
+      "role_id": 0,
+      "id": 1
     },
     {
-      "id": "d729",
       "login": "ivan",
       "password": "qwerty123",
-      "registered_at": "2037-01-09 09:20",
-      "role_id": 1
-    },
-    {
-      "id": "e846",
-      "login": "ivan2",
-      "password": "qwerty321",
-      "registered_at": "2050-09-16 22:12",
-      "role_id": 2
-    },
-    {
-      "id": "7f00",
-      "login": "andrey",
-      "password": "qwerty123",
-      "registered_at": "2037-06-17 06:53",
-      "role_id": 2
-    },
-    {
-      "login": "manton",
-      "password": "qwerty123",
-      "registered_at": "15.08.2020, 06:27",
+      "registered_at": "01.11.2020, 08:40",
       "role_id": 2,
-      "id": "ft15dYR"
+      "id": 2
+    },
+    {
+      "login": "ivan2",
+      "password": "qwerty123",
+      "registered_at": "16.02.2025, 21:56",
+      "role_id": 2,
+      "id": 3
     }
   ],
   "roles": [

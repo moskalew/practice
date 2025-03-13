@@ -9,10 +9,14 @@ const UsersContainer = ({ className }) => {
 	const [users, setUsers] = useState([]);
 	const [roles, setRoles] = useState([]);
 	const [errorMessage, setErrorMessage] = useState(null);
+	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
+	// console.log("shouldUpdateUserList");
 
 	const requestServer = useServerRequest();
 
 	useEffect(() => {
+		// console.log("useEffect");
+
 		Promise.all([requestServer("fetchUsers"), requestServer("fetchRoles")])
 			.then(([usersRes, rolesRes]) => {
 				if (usersRes.error || rolesRes.error) {
@@ -20,7 +24,6 @@ const UsersContainer = ({ className }) => {
 					return;
 				}
 
-				// console.log("Данные с сервера (roles):", rolesRes.res);
 				setUsers(usersRes.res);
 				setRoles(rolesRes.res);
 			})
@@ -28,17 +31,22 @@ const UsersContainer = ({ className }) => {
 				console.error("Ошибка запроса:", error);
 				setErrorMessage("Ошибка загрузки данных");
 			});
-	}, [requestServer]);
+	}, [requestServer, shouldUpdateUserList]);
 
-	// Фильтрация с проверкой типов данных
 	const filteredRoles = useMemo(() => {
 		const guestRoleId = Number(ROLE.GUEST);
 		const filtered = roles.filter(({ id }) => Number(id) !== guestRoleId);
-		// console.log("ROLE.GUEST:", guestRoleId);
-		// console.log("Очищенные роли:", roles);
-		// console.log("Фильтрованные роли:", filtered);
 		return filtered;
 	}, [roles]);
+
+	const onUserRemove = (userId) => {
+		// console.log("onUserRemove", userId);
+
+		requestServer("removeUser", userId).then(() => {
+			// console.log("requestServer then");
+			setShouldUpdateUserList(!shouldUpdateUserList);
+		});
+	};
 
 	return (
 		<div className={className}>
@@ -62,6 +70,7 @@ const UsersContainer = ({ className }) => {
 							registeredAt={registeredAt}
 							roleId={roleId}
 							roles={filteredRoles}
+							onUserRemove={() => onUserRemove(id)}
 						/>
 					))}
 				</div>

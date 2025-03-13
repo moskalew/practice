@@ -11,13 +11,11 @@ const UserRowContainer = ({
 	registeredAt,
 	roleId: userRoleId,
 	roles,
+	onUserRemove,
 }) => {
 	const [initialRoleId, setInitialRoleId] = useState(userRoleId);
-	// console.log("Дата регистрации:", registeredAt);
 	const [selectedRoleId, setSelectedRoleId] = useState(userRoleId);
 	const requestServer = useServerRequest();
-
-	// console.log("В roles приходят такие значения", roles);
 
 	const onRoleChange = ({ target }) => {
 		setSelectedRoleId(Number(target.value));
@@ -52,7 +50,7 @@ const UserRowContainer = ({
 					/>
 				</div>
 			</TableRow>
-			<Icon id="fa-trash-o" margin="0 0 0 10px" onClick={() => {}} />
+			<Icon id="fa-trash-o" margin="0 0 0 10px" onClick={onUserRemove} />
 		</div>
 	);
 };
