@@ -1,8 +1,8 @@
-import { getUsers } from "../api";
+import { setUserRole } from "../api";
 import { sessions } from "../sessions";
 import { ROLE } from "../constants";
 
-export const fetchUsers = async (userSession) => {
+export const updateUserRole = async (userSession, userId, newUserRoleId) => {
 	const accessRoles = [ROLE.ADMIN];
 
 	// debugger;
@@ -12,14 +12,10 @@ export const fetchUsers = async (userSession) => {
 			res: null,
 		};
 	}
+	setUserRole(userId, newUserRoleId);
 
-	const users = await getUsers();
-	// debugger;
-	// getUsers().then((users) => console.log(users));
-
-	// console.log(user);
 	return {
 		error: null,
-		res: users,
+		res: true,
 	};
 };

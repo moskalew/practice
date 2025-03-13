@@ -1,9 +1,8 @@
-import { ROLE } from "../../constants"; // Проверьте путь к файлу
-
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { Content, H2 } from "../../components";
 import { UserRow, TableRow } from "./components";
 import { useServerRequest } from "../../hooks";
+import { ROLE } from "../../constants";
 import styled from "styled-components";
 
 const UsersContainer = ({ className }) => {
@@ -12,9 +11,8 @@ const UsersContainer = ({ className }) => {
 	const [errorMessage, setErrorMessage] = useState(null);
 
 	const requestServer = useServerRequest();
-	// console.log(requestServer);
+
 	useEffect(() => {
-		// console.log("useEffect сработал!");
 		Promise.all([requestServer("fetchUsers"), requestServer("fetchRoles")])
 			.then(([usersRes, rolesRes]) => {
 				if (usersRes.error || rolesRes.error) {
@@ -22,6 +20,7 @@ const UsersContainer = ({ className }) => {
 					return;
 				}
 
+				// console.log("Данные с сервера (roles):", rolesRes.res);
 				setUsers(usersRes.res);
 				setRoles(rolesRes.res);
 			})
@@ -30,6 +29,16 @@ const UsersContainer = ({ className }) => {
 				setErrorMessage("Ошибка загрузки данных");
 			});
 	}, [requestServer]);
+
+	// Фильтрация с проверкой типов данных
+	const filteredRoles = useMemo(() => {
+		const guestRoleId = Number(ROLE.GUEST);
+		const filtered = roles.filter(({ id }) => Number(id) !== guestRoleId);
+		// console.log("ROLE.GUEST:", guestRoleId);
+		// console.log("Очищенные роли:", roles);
+		// console.log("Фильтрованные роли:", filtered);
+		return filtered;
+	}, [roles]);
 
 	return (
 		<div className={className}>
@@ -48,12 +57,11 @@ const UsersContainer = ({ className }) => {
 					{users.map(({ id, login, registeredAt, roleId }) => (
 						<UserRow
 							key={id}
+							id={id}
 							login={login}
 							registeredAt={registeredAt}
 							roleId={roleId}
-							roles={roles.filter(
-								({ roleId }) => roleId !== ROLE.GUEST,
-							)}
+							roles={filteredRoles}
 						/>
 					))}
 				</div>

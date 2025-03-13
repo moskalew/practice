@@ -2,4 +2,7 @@ import { transformUser } from "../transformers";
 export const getUsers = () =>
 	fetch("http://localhost:3005/users")
 		.then((loadedUsers) => loadedUsers.json())
-		.then((loadedUsers) => loadedUsers && loadedUsers.map(transformUser));
+		.then((loadedUsers) => {
+			// console.log("Полученные пользователи:", loadedUsers); //  для проверки
+			return loadedUsers && loadedUsers.map(transformUser);
+		});

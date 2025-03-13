@@ -4,29 +4,36 @@
       "id": "001",
       "login": "anton",
       "password": "qwerty123",
-      "registred_at": "2050-09-22",
+      "registered_at": "2050-09-22",
       "role_id": "0"
     },
     {
       "id": "d729",
       "login": "ivan",
       "password": "qwerty123",
-      "registed_at": "2037-01-09 09:20",
-      "role_id": 2
+      "registered_at": "2037-01-09 09:20",
+      "role_id": 1
     },
     {
       "id": "e846",
       "login": "ivan2",
       "password": "qwerty321",
-      "registed_at": "2050-09-16 22:12",
+      "registered_at": "2050-09-16 22:12",
       "role_id": 2
     },
     {
       "id": "7f00",
       "login": "andrey",
       "password": "qwerty123",
-      "registed_at": "2037-06-17 06:53",
+      "registered_at": "2037-06-17 06:53",
       "role_id": 2
+    },
+    {
+      "login": "manton",
+      "password": "qwerty123",
+      "registered_at": "15.08.2020, 06:27",
+      "role_id": 2,
+      "id": "ft15dYR"
     }
   ],
   "roles": [
