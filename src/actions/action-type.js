@@ -3,3 +3,5 @@ export const ACTION_TYPE = {
 	LOGOUT: "LOGOUT",
 	SET_POST_DATA: "SET_POST_DATA",
 };
+
+//здесь вроде ошибка?

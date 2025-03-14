@@ -30,8 +30,7 @@ export const Blog = () => {
 					<Route path="/users" element={<Users />} />
 					<Route path="/post" element={<div>Новая статья</div>} />
 					<Route path="/post/:id" element={<Post />} />
-					<Route path="*" element={<Post />} />
-					<Route path="/post/:postId" element={<div>Ошибка</div>} />
+					<Route path="*" element={<div>Ошибка</div>} />
 				</Routes>
 			</Page>
 			<Footer />
