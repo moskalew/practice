@@ -1,7 +1,21 @@
-const initialPostsState = {};
+import { ACTION_TYPE } from "../actions";
 
-export const postsReducer = (state = initialPostsState, action) => {
+const initialPostState = {
+	id: "",
+	title: "",
+	imageUrl: "",
+	content: "",
+	publishedAt: "",
+	comments: [],
+};
+
+export const postsReducer = (state = initialPostState, action) => {
 	switch (action.type) {
+		case ACTION_TYPE.SET_POST_DATA:
+			return {
+				...state,
+				...action.payload,
+			};
 		default:
 			return state;
 	}
