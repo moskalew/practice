@@ -40,7 +40,7 @@ export const Comment = styled(CommentContainer)`
 		justify-content: space-between;
 	}
 
-	& .ublished-at {
+	& .published-at {
 		display: flex;
 		justify-content: space-between;
 	}

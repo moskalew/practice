@@ -1,18 +1,34 @@
+import { getSession, addSession, deleteSession } from "./api";
+
 export const sessions = {
-	list: {},
 	create(user) {
 		const hash = Math.random().toFixed(50);
-		this.list[hash] = user;
+		// console.log(" create user", user);
+
+		addSession(hash, user);
 		return hash;
 	},
 
-	remove(hash) {
-		delete this.list[hash];
+	async remove(hash) {
+		const session = await getSession(hash);
+
+		if (!session) {
+			return;
+		}
+
+		deleteSession(session.id);
 	},
 
-	access(hash, accessRoles) {
-		const user = this.list[hash];
-		// Проверка, что user существует и что roleId можно корректно привести к числу
-		return user && accessRoles.includes(Number(user.roleId));
+	async access(hash, accessRoles) {
+		const dbSession = await getSession(hash);
+		// console.log("access", hash, accessRoles, dbSession);
+
+		// console.log("Access check:", {
+		// 	hash,
+		// 	accessRoles,
+		// 	sessionRoleId: dbSession?.user?.roleId,
+		// });
+
+		return !!dbSession.user && accessRoles.includes(dbSession.user.roleId);
 	},
 };
