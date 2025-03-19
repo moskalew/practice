@@ -154,6 +154,34 @@
       "published_at": "11.01.2023, 04:20",
       "content": "ljlkj",
       "id": 6
+    },
+    {
+      "authorId": 1,
+      "post_id": "001",
+      "published_at": "27.07.2022, 10:13",
+      "content": "лолор",
+      "id": 7
+    },
+    {
+      "authorId": 1,
+      "post_id": "001",
+      "published_at": "28.07.2022, 18:14",
+      "content": "лорлорлор",
+      "id": 8
+    },
+    {
+      "authorId": 1,
+      "post_id": "001",
+      "published_at": "22.06.2023, 03:10",
+      "content": "лорлор",
+      "id": 9
+    },
+    {
+      "authorId": 1,
+      "post_id": "001",
+      "published_at": "03.03.2021, 19:40",
+      "content": "лорлор",
+      "id": 10
     }
   ],
   "sessions": [
@@ -178,6 +206,28 @@
         "roleId": 0
       },
       "id": 2
+    },
+    {
+      "hash": "0.51866448842444090594483441236661747097969055175781",
+      "user": {
+        "id": 1,
+        "login": "anton",
+        "password": "qwe123",
+        "registeredAt": "20.08.2023, 08:31",
+        "roleId": 0
+      },
+      "id": 3
+    },
+    {
+      "hash": "0.93865306416668936595470995598589070141315460205078",
+      "user": {
+        "id": 1,
+        "login": "anton",
+        "password": "qwe123",
+        "registeredAt": "20.08.2023, 08:31",
+        "roleId": 0
+      },
+      "id": 4
     }
   ]
 }

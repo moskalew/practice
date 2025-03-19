@@ -1,5 +1,4 @@
 export const transformUser = (dbUser) => {
-	// console.log("Трансформируем пользователя:", dbUser); // объект перед трансформацией
 	return {
 		id: dbUser.id,
 		login: dbUser.login,

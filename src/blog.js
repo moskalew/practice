@@ -37,7 +37,6 @@ export const Blog = () => {
 			}),
 		);
 	}, [dispatch]);
-	// console.log("Приложение загружено!");
 	return (
 		<AppColumn>
 			<Header />

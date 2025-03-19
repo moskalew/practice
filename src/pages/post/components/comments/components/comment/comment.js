@@ -5,7 +5,7 @@ const CommentContainer = ({ className, id, author, publishedAt, content }) => {
 	return (
 		<div className={className}>
 			<div className="information-panel">
-				<div className="autor">
+				<div className="author">
 					{author}
 					<Icon
 						id="fa-user-circle-o"
@@ -35,7 +35,7 @@ export const Comment = styled(CommentContainer)`
 		justify-content: space-between;
 	}
 
-	& .autor {
+	& .author {
 		display: flex;
 		justify-content: space-between;
 	}

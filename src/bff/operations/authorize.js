@@ -20,8 +20,6 @@ export const authorize = async (authLogin, authPassword) => {
 		};
 	}
 
-	// console.log("✅ Авторизация успешна!");
-
 	return {
 		error: null,
 		res: {

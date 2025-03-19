@@ -15,10 +15,7 @@ export const fetchUsers = async (hash) => {
 	}
 
 	const users = await getUsers();
-	// debugger;
-	// getUsers().then((users) => console.log(users));
 
-	// console.log(user);
 	return {
 		error: null,
 		res: users,
