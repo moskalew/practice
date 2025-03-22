@@ -123,65 +123,23 @@
     {
       "authorId": 1,
       "post_id": "001",
-      "published_at": "01.04.2021, 13:03",
-      "content": ";lk;lk;lk",
+      "published_at": "24.03.2021, 19:34",
+      "content": "длодло",
       "id": 2
     },
     {
       "authorId": 1,
       "post_id": "001",
-      "published_at": "15.08.2020, 17:12",
-      "content": "hgfhgfhg",
+      "published_at": "05.12.2020, 00:04",
+      "content": "ещё коммент",
       "id": 3
     },
     {
       "authorId": 1,
       "post_id": "001",
-      "published_at": "29.08.2022, 10:33",
-      "content": ";lk;lk;lkasdfghjjhgfdssdfgjklkjhs",
+      "published_at": "07.11.2022, 17:03",
+      "content": "ещё коммент 2",
       "id": 4
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
-      "published_at": "24.11.2022, 03:58",
-      "content": "ljlkj",
-      "id": 5
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
-      "published_at": "11.01.2023, 04:20",
-      "content": "ljlkj",
-      "id": 6
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
-      "published_at": "27.07.2022, 10:13",
-      "content": "лолор",
-      "id": 7
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
-      "published_at": "28.07.2022, 18:14",
-      "content": "лорлорлор",
-      "id": 8
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
-      "published_at": "22.06.2023, 03:10",
-      "content": "лорлор",
-      "id": 9
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
-      "published_at": "03.03.2021, 19:40",
-      "content": "лорлор",
-      "id": 10
     }
   ],
   "sessions": [
@@ -197,7 +155,7 @@
       "id": 1
     },
     {
-      "hash": "0.15202804768368083365714937826851382851600646972656",
+      "hash": "0.41317986367235082223459130545961670577526092529297",
       "user": {
         "id": 1,
         "login": "anton",
@@ -206,28 +164,6 @@
         "roleId": 0
       },
       "id": 2
-    },
-    {
-      "hash": "0.51866448842444090594483441236661747097969055175781",
-      "user": {
-        "id": 1,
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "20.08.2023, 08:31",
-        "roleId": 0
-      },
-      "id": 3
-    },
-    {
-      "hash": "0.93865306416668936595470995598589070141315460205078",
-      "user": {
-        "id": 1,
-        "login": "anton",
-        "password": "qwe123",
-        "registeredAt": "20.08.2023, 08:31",
-        "roleId": 0
-      },
-      "id": 4
     }
   ]
 }
