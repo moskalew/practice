@@ -116,23 +116,9 @@
     {
       "authorId": 1,
       "post_id": "001",
-      "published_at": "08.02.2021, 04:47",
-      "content": "Мой первый комментарий",
-      "id": 1
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
-      "published_at": "05.12.2020, 00:04",
-      "content": "ещё коммент",
-      "id": 3
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
-      "published_at": "07.11.2022, 17:03",
-      "content": "ещё коммент 2",
-      "id": 4
+      "published_at": "17.05.2022, 15:27",
+      "content": "Новый коммент",
+      "id": 5
     }
   ],
   "sessions": [
