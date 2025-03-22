@@ -123,13 +123,6 @@
     {
       "authorId": 1,
       "post_id": "001",
-      "published_at": "24.03.2021, 19:34",
-      "content": "длодло",
-      "id": 2
-    },
-    {
-      "authorId": 1,
-      "post_id": "001",
       "published_at": "05.12.2020, 00:04",
       "content": "ещё коммент",
       "id": 3
