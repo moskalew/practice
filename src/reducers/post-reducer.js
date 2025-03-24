@@ -15,14 +15,9 @@ export const postReducer = (state = initialPostState, action) => {
 			return {
 				...state,
 				...action.payload,
-
-				// comments: action.payload.comments || state.comments, // Обновляем только comments
-				// id: action.payload.id || state.id,
-				// title: action.payload.title || state.title,
-				// content: action.payload.content || state.content,
-				// imageUrl: action.payload.imageUrl || state.imageUrl,
-				// publishedAt: action.payload.publishedAt || state.publishedAt,
 			};
+		case ACTION_TYPE.RESET_POST_DATA:
+			return initialPostState;
 		default:
 			return state;
 	}
