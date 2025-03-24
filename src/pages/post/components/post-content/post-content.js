@@ -1,11 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { H2, Icon } from "../../../../components";
 import { SpecialPanel } from "../special-panel/special-panel";
 import styled from "styled-components";
 
 const PostContentContainer = ({
 	className,
-	post: { title, imageUrl, content, publishedAt },
+	post: { id, title, imageUrl, content, publishedAt },
 }) => {
+	const navigate = useNavigate();
 	return (
 		<div className={className}>
 			<img src={imageUrl} alt={title} />
@@ -18,7 +20,7 @@ const PostContentContainer = ({
 						id="fa-pencil-square-o"
 						margin="1px 10px 0 0"
 						size="22px"
-						onClick={() => {}}
+						onClick={() => navigate(`/post/${id}/edit`)}
 					/>
 				}
 			/>
