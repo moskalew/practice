@@ -2,8 +2,8 @@ import { useEffect, useLayoutEffect } from "react";
 import { useMatch, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Comments, PostContent, PostForm } from "./components";
-import { loadPostAsync, RESET_POST_DATA } from "../../actions";
 import { useServerRequest } from "../../hooks";
+import { loadPostAsync, RESET_POST_DATA } from "../../actions";
 import { selectPost } from "../../selectors";
 import styled from "styled-components";
 
@@ -18,7 +18,7 @@ const PostContainer = ({ className }) => {
 
 	useLayoutEffect(() => {
 		dispatch(RESET_POST_DATA);
-	}, [dispatch]);
+	}, [dispatch, isCreating]);
 
 	useEffect(() => {
 		if (isCreating) {
