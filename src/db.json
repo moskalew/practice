@@ -140,13 +140,6 @@
       "id": "UYUPZLk"
     },
     {
-      "image_url": "https://fastly.picsum.photos/id/60/180/150.jpg?hmac=DtwOabryuLpjcy1hwQCueRoD-rcV1Yp_KDBaVetHD2w",
-      "published_at": "23.12.2023, 06:50",
-      "title": "бля тля",
-      "content": "хуеверть",
-      "id": "DA-QILZ"
-    },
-    {
       "image_url": "https://fastly.picsum.photos/id/566/180/150.jpg?hmac=AX7u-lLDW6IdRiiU9b60UEPgDrrLtSat9RowRLDBNOs",
       "published_at": "27.09.2024, 21:47",
       "title": "ждлждлждлждлждлждлждлждл",
@@ -168,7 +161,36 @@
       "id": "6Va68fB"
     }
   ],
-  "comments": [],
+  "comments": [
+    {
+      "authorId": 1,
+      "post_id": "002",
+      "published_at": "25.05.2020, 11:06",
+      "content": "rjvvtyn\n",
+      "id": 1
+    },
+    {
+      "authorId": 1,
+      "post_id": "002",
+      "published_at": "24.05.2024, 18:25",
+      "content": "rjммент",
+      "id": 2
+    },
+    {
+      "authorId": 1,
+      "post_id": "002",
+      "published_at": "24.01.2025, 22:25",
+      "content": "комментс",
+      "id": 3
+    },
+    {
+      "authorId": 1,
+      "post_id": "002",
+      "published_at": "11.03.2025, 06:31",
+      "content": "lkjlklkjlkjlkj",
+      "id": 4
+    }
+  ],
   "sessions": [
     {
       "hash": "0.73768888159474577115304327890044078230857849121094",
@@ -235,6 +257,17 @@
         "roleId": 0
       },
       "id": 6
+    },
+    {
+      "hash": "0.12963695194214752692829506486305035650730133056641",
+      "user": {
+        "id": 1,
+        "login": "anton",
+        "password": "qwe123",
+        "registeredAt": "20.08.2023, 08:31",
+        "roleId": 0
+      },
+      "id": 7
     }
   ]
 }
