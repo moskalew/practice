@@ -43,7 +43,7 @@ const PostCardContainer = ({
 };
 
 export const PostCard = styled(PostCardContainer)`
-	disply: flex;
+	display: flex;
 	flex-direction: column;
 	width: 280px;
 	margin: 20px;
