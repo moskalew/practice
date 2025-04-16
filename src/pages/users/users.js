@@ -1,7 +1,10 @@
 import { useEffect, useState, useMemo } from "react";
-import { Content, H2 } from "../../components";
+import { useSelector } from "react-redux";
+import { PrivateContent, H2 } from "../../components";
 import { UserRow, TableRow } from "./components";
 import { useServerRequest } from "../../hooks";
+import { selectUserRole } from "../../selectors";
+import { checkAccess } from "../../utils";
 import { ROLE } from "../../constants";
 import styled from "styled-components";
 
@@ -10,10 +13,15 @@ const UsersContainer = ({ className }) => {
 	const [roles, setRoles] = useState([]);
 	const [errorMessage, setErrorMessage] = useState(null);
 	const [shouldUpdateUserList, setShouldUpdateUserList] = useState(false);
+	const userRole = useSelector(selectUserRole);
 
 	const requestServer = useServerRequest();
 
 	useEffect(() => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) {
+			return;
+		}
+
 		Promise.all([requestServer("fetchUsers"), requestServer("fetchRoles")])
 			.then(([usersRes, rolesRes]) => {
 				if (usersRes.error || rolesRes.error) {
@@ -28,7 +36,7 @@ const UsersContainer = ({ className }) => {
 				console.error("Ошибка запроса:", error);
 				setErrorMessage("Ошибка загрузки данных");
 			});
-	}, [requestServer, shouldUpdateUserList]);
+	}, [requestServer, shouldUpdateUserList, userRole]);
 
 	const filteredRoles = useMemo(() => {
 		const guestRoleId = Number(ROLE.GUEST);
@@ -37,6 +45,9 @@ const UsersContainer = ({ className }) => {
 	}, [roles]);
 
 	const onUserRemove = (userId) => {
+		if (!checkAccess([ROLE.ADMIN], userRole)) {
+			return;
+		}
 		requestServer("removeUser", userId).then(() => {
 			setShouldUpdateUserList(!shouldUpdateUserList);
 		});
@@ -44,9 +55,8 @@ const UsersContainer = ({ className }) => {
 
 	return (
 		<div className={className}>
-			<Content error={errorMessage}>
+			<PrivateContent access={[ROLE.ADMIN]} serverError={errorMessage}>
 				<H2>Пользователи</H2>
-
 				<div>
 					<TableRow>
 						<div className="login-column">Логин</div>
@@ -68,7 +78,7 @@ const UsersContainer = ({ className }) => {
 						/>
 					))}
 				</div>
-			</Content>
+			</PrivateContent>
 		</div>
 	);
 };

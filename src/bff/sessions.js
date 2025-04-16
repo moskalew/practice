@@ -23,6 +23,6 @@ export const sessions = {
 		if (!dbSession) {
 			return false;
 		}
-		return !!dbSession.user && accessRoles.includes(dbSession.user.roleId);
+		return !!dbSession?.user && accessRoles.includes(dbSession.user.roleId);
 	},
 };
