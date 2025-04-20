@@ -1,8 +1,10 @@
+import PropTypes from "prop-types";
 import { useState } from "react";
 import { Icon } from "../../../../components";
 import { TableRow } from "../table-row/table-row";
 import { useServerRequest } from "../../../../hooks";
 import styled from "styled-components";
+import { PROP_TYPE } from "../../../../constants";
 
 const UserRowContainer = ({
 	className,
@@ -37,7 +39,7 @@ const UserRowContainer = ({
 				<div className="role-column">
 					<select value={selectedRoleId} onChange={onRoleChange}>
 						{roles.map(({ id: roleId, name: roleName }) => (
-							<option key={roleId} value={roleId}>
+							<option key={roleId} value={Number(roleId)}>
 								{roleName}
 							</option>
 						))}
@@ -71,3 +73,12 @@ export const UserRow = styled(UserRowContainer)`
 		margin: 0 0 0 10px;
 	}
 `;
+
+UserRow.propTypes = {
+	id: PropTypes.number.isRequired, // исправлено
+	login: PropTypes.string.isRequired,
+	registeredAt: PropTypes.string.isRequired,
+	roleId: PROP_TYPE.ROLE_ID.isRequired,
+	roles: PropTypes.arrayOf(PROP_TYPE.ROLE).isRequired,
+	onUserRemove: PropTypes.func.isRequired,
+};
