@@ -212,20 +212,6 @@
   ],
   "comments": [
     {
-      "authorId": 3,
-      "post_id": "002",
-      "published_at": "09.08.2021, 19:32",
-      "content": "от петра",
-      "id": 5
-    },
-    {
-      "authorId": 3,
-      "post_id": "002",
-      "published_at": "16.04.2023, 16:20",
-      "content": "ещё один комментаррий\n",
-      "id": 6
-    },
-    {
       "authorId": 2,
       "post_id": "002",
       "published_at": "29.12.2024, 00:09",
@@ -254,11 +240,11 @@
       "id": 10
     },
     {
-      "authorId": 1,
+      "authorId": 3,
       "post_id": "003",
-      "published_at": "20.09.2024, 15:47",
-      "content": "jjkhkjh",
-      "id": 11
+      "published_at": "07.03.2025, 15:38",
+      "content": "коммент\n",
+      "id": 12
     }
   ],
   "sessions": [
@@ -382,6 +368,17 @@
         "roleId": 0
       },
       "id": 11
+    },
+    {
+      "hash": "0.56632512795335931965468034832156263291835784912109",
+      "user": {
+        "id": 1,
+        "login": "anton",
+        "password": "qwe123",
+        "registeredAt": "20.08.2023, 08:31",
+        "roleId": 0
+      },
+      "id": 12
     }
   ]
 }
